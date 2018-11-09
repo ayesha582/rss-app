@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AppRouter from './AppRoutes';
+// import AppRouter from './AppRoutes';
+import Main from './Main';
 import { changeActiveIndex, saveStateToLocalStorage, initializeFromLocalStorage } from '../store/actions/actions-rss-data';
 import './app.scss';
 
@@ -29,7 +30,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <AppRouter />
+                <Main />
             </div>
         )
     }
