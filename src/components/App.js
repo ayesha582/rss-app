@@ -1,20 +1,18 @@
 import React from 'react';
-import UrlInput from './UrlInput';
-import Content from './Content';
-import Tabs from './Tabs';
 import { connect } from 'react-redux';
-import { changeActiveIndex,saveStateToLocalStorage,initializeFromLocalStorage } from '../store/actions/actions-rss-data';
+import AppRouter from './AppRoutes';
+import { changeActiveIndex, saveStateToLocalStorage, initializeFromLocalStorage } from '../store/actions/actions-rss-data';
 import './app.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { feedData: null, isMobView: true };
+        this.state = {};
         if (window.performance) {
             if (performance.navigation.type == 1) {
-              props.dispatch(saveStateToLocalStorage());
+                props.dispatch(saveStateToLocalStorage());
             }
-          }
+        }
     }
 
     componentDidMount = () => {
@@ -28,28 +26,10 @@ class App extends React.Component {
         this.props.dispatch(changeActiveIndex(hashUrl));
     }
 
-    setData = (data) => {
-        this.setState({ feedData: data.items });
-    }
-
-    changeView = () =>{
-        this.setState({isMobView: !this.state.isMobView});
-    }
-
     render() {
-        let {isMobView} = this.state;
         return (
             <div className="container">
-                <div className={`side-bar ${!isMobView?'visible':''}`}>
-                    <UrlInput />
-                    <Tabs />
-                    <div className="nav-cross" onClick={this.changeView}>
-                        <i className="material-icons">
-                            {isMobView ?'menu':'close'}
-                        </i>
-                    </div>
-                </div>
-                <Content feedData={this.state.feedData} />
+                <AppRouter />
             </div>
         )
     }
