@@ -9,7 +9,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "build": "webpack  --config ./webpack.config.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages test3 -d dist"
+    "deploy": "gh-pages -b test4 -d dist"
   },
   "keywords": [],
   "author": "",
