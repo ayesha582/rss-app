@@ -1,11 +1,15 @@
 {
-  "name": "rss-app-ayesha-mundu",
+  "name": "rss-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://ayesha582.github.io/rss-app/",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "build": "webpack  --config ./webpack.config.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d dist"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
