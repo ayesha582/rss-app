@@ -24,7 +24,7 @@ class UrlInput extends React.Component {
             <div>
                 <input placeholder="Enter Rss Url" id="rss-url" />
                 <button onClick={this.getData} id="btn-import">
-                    <i class="material-icons">
+                    <i className="material-icons">
                         search
                     </i>
                 </button>

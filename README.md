@@ -54,4 +54,8 @@ Feel free to add text for describing the decisions you've made along the way.
 
 ##Best of Luck !
 
+##to start application
+npm install
+npm start
+
 

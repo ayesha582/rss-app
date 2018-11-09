@@ -3,17 +3,23 @@ import UrlInput from './UrlInput';
 import Content from './Content';
 import Tabs from './Tabs';
 import { connect } from 'react-redux';
-import { changeActiveIndex } from '../store/actions/actions-rss-data';
+import { changeActiveIndex,saveStateToLocalStorage,initializeFromLocalStorage } from '../store/actions/actions-rss-data';
 import './app.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { feedData: null, isMobView: true }
+        this.state = { feedData: null, isMobView: true };
+        if (window.performance) {
+            if (performance.navigation.type == 1) {
+              props.dispatch(saveStateToLocalStorage());
+            }
+          }
     }
 
     componentDidMount = () => {
         window.addEventListener('hashchange', this.listener);
+        this.props.dispatch(initializeFromLocalStorage());
     }
 
     listener = (e) => {
@@ -37,8 +43,8 @@ class App extends React.Component {
                 <div className={`side-bar ${!isMobView?'visible':''}`}>
                     <UrlInput />
                     <Tabs />
-                    <div class="nav-cross" onClick={this.changeView}>
-                        <i class="material-icons">
+                    <div className="nav-cross" onClick={this.changeView}>
+                        <i className="material-icons">
                             {isMobView ?'menu':'close'}
                         </i>
                     </div>

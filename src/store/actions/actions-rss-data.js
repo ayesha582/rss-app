@@ -4,22 +4,32 @@ import axios from 'axios';
 import {
     ADD_RSS_DATA,
     DELETE_RSS_DATA,
-    CHANGE_ACTIVE_INDEX
+    CHANGE_ACTIVE_INDEX,
+    SAVE_STATE_TO_LOCAL_STORAGE,
+    INITIALIZE_FROM_LOCAL_STORAGE
 } from '../types';
 
 function addRssData(data) {
-    return { type: ADD_RSS_DATA, data: {items:data.items,url:data.feed.url} }
+    return { type: ADD_RSS_DATA, data: { items: data.items, url: data.feed.url } }
 }
 
 function deleteRssData(id) {
     return { type: DELETE_RSS_DATA, data: id }
 }
 
-export function changeActiveIndex(key){
+export function saveStateToLocalStorage() {
+    return { type: SAVE_STATE_TO_LOCAL_STORAGE }
+}
+
+export function initializeFromLocalStorage() {
+    return { type: INITIALIZE_FROM_LOCAL_STORAGE }
+}
+
+export function changeActiveIndex(key) {
     return { type: CHANGE_ACTIVE_INDEX, data: key }
 }
 
-export function deleteIndex(key){
+export function deleteIndex(key) {
     return { type: DELETE_RSS_DATA, data: key }
 }
 
