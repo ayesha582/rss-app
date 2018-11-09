@@ -19,6 +19,7 @@ class Content extends React.Component {
         if(!activeIndex || !RssRenderData[activeIndex]){
             activeIndex = Object.keys(RssRenderData)[0];
             activeData = RssRenderData[activeIndex];
+            window.location.hash = activeIndex;
         }else{
             activeData = RssRenderData[activeIndex];
         }

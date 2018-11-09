@@ -11,14 +11,14 @@ class Tabs extends React.Component {
     }
 
     renderFunc = () =>{
-        let { dispatch, RssRenderData } = this.props;
+        let { dispatch, RssRenderData,activeIndex } = this.props;
         let {tabs} = this.state;
         if(!(RssRenderData && Object.keys(RssRenderData).length > 0)){
             if(tabs.length >0)this.setState({tabs: []});
             return;
         };
         let tabsData = Object.keys(RssRenderData).map((k, index) =>
-                <div key={index} className="tab" onClick={() => dispatch(changeActiveIndex(k))}>
+                <div key={index} className={`tab ${k === activeIndex?'active':''}`} onClick={() => dispatch(changeActiveIndex(k))}>
                     <i className="material-icons" onClick={()=>dispatch(deleteIndex(k))}>
                         clear
                     </i>
@@ -33,7 +33,7 @@ class Tabs extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (JSON.stringify(prevProps.RssRenderData) !== JSON.stringify(this.props.RssRenderData)) {
+        if (JSON.stringify(prevProps.RssRenderData) !== JSON.stringify(this.props.RssRenderData) || prevProps.activeIndex !== this.props.activeIndex) {
             this.renderFunc();
         }
     }
