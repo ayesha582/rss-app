@@ -1,4 +1,2 @@
 node_modules
 .DS_Store
-dist/bundle.js
-dist/bundle.js.map
