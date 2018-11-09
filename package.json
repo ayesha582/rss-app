@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://ayesha582.github.io/rss-app/",
+  "homepage": "https://ayesha582.github.io/",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"No test specified\" && exit 0",
