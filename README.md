@@ -8,4 +8,4 @@ to <script src="/bundle.js"></script>
 in index.html file
 
 #live DEMO
-https://ayesha582.github.io
+https://ayesha582.github.io/rss-app/
